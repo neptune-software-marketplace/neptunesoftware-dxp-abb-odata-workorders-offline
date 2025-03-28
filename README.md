@@ -238,11 +238,90 @@ We now have our first Neptune Application using a standard OData service. We can
 
 ## 3. Neptune Work Order applications with offline capabilities
 
+From the Neptune Cockpit open the `App Designer` and press `Create from File`.
 
-ODataMaintenanceOrder
+<img src="./images/app-designer-create-from-file.png" alt="image" width="600px" height="auto">
 
+Select the `MyWorkOrdersOffline-start.planet9` file and give the Application a Name like `myworkorders`.
 
-colItemTable-press
+The newly created application contains all the UI5 elements for the `My Work Orders` application. It has a `WorkOrderListPage` with a Table and a `WorkOrderDetailPage`. You can Activate and Run the application already but no OData Service is connected yet. 
+
+<img src="./images/app-designer-myworkorders-start.png" alt="image" width="400px" height="auto">
+
+### ODataSource
+
+Drag the `ODataSource` control to the `Resources` and rename it to `ODataMaintenanceOrder`
+
+<img src="./images/app-designer-odatasource2.png" alt="image" width="800px" height="auto">
+
+### MultiModel
+
+In the application a `MultiModel` is already available with the name `WorkOrders`. This Multimodel is setup for offline usage by using the following attributes.
+- cacheInitLoadFinished: Event triggered after the Cache is loaded on startup of the application
+- setCacheType: We will use IndexedDB for offline storage
+- setEnableCache: Enable the caching
+- setInitLoad: Loads Model Data from offline storage
+
+<img src="./images/app-designer-multimodel.png" alt="image" width="800px" height="auto">
+
+### OData read
+
+In the `Javascript` add the following code:
+
+```js
+function getSAPWorkOrders() {
+    // Initialise ODataMaintenanceOrder
+    if (!ODataMaintenanceOrder) {
+        createODataMaintenanceOrder({});
+    }
+
+    // Filter on Responsible Person 
+    // (Hardcoded for now, in final application we will use another OData Service 
+    // to retrieve the Person Number for current SAP User)
+    const filter = new sap.ui.model.Filter("MaintOrdPersonResponsible", "EQ", "57");
+    const filters = [filter];
+
+    // Read Work Orders
+    ODataMaintenanceOrder.read("/C_ObjPgMaintOrder", {
+        filters: filters,
+        urlParameters: "$expand=to_MaintOrderOperation",
+        success: function (data) {
+            modelWorkOrders.setProperty("/orders", data.results);
+            setCacheWorkOrders();
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+```
+
+This is a function which retrieves the SAP Work Orders with an ODataModel read call, you can $filters, $expands and $select parameters if needed. In this case we will use the $expand `to_MaintOrderOperation` to not only retrieve Work Order Header data but also the related operations. As filter we use the hardcode value of `57` for now.
+
+### cacheInitLoadFinished
+
+In the `cacheInitLoadFinished` we will add some logic to retrieve the SAP Work Orders when we are in online mode.
+
+```js
+function cacheInitLoadFinished() {
+    
+    // When online retrieve SAP Data
+    if (navigator.onLine) {
+        getSAPWorkOrders();
+    }
+}
+```
+
+Activate and Run the App to see the Work Orders.
+
+<img src="./images/app-designer-myworkorders-run.png" alt="image" width="800px" height="auto">
+
+If we navigate to the Detail page we see the binding is not working yet.
+
+### Detail Page binding
+
+Go to the `press` event of the `colItemTable` and add the following code:
+
 ```js
 const context = oEvent.getSource().getBindingContext("WorkOrders");
 const order = context.getObject();
@@ -252,91 +331,68 @@ modelWorkOrderDetailPage.setData(order);
 App.to(WorkOrderDetailPage);
 ```
 
-StartButton-press
-```js
-modelWorkOrderDetailPage.setProperty("/StartTime", new Date());
-StartButton.setEnabled(false);
-StopButton.setEnabled(true);
+This code will retrieve the binding from the selected tab row and put the data in the model attached to the `WorkOrderDetailPage`. The binding of the fields was already done beforehand.
 
-setCacheWorkOrders();
-```
+<img src="./images/app-designer-colItemTable-press.png" alt="image" width="800px" height="auto">
 
-StopButton-press
+Activate and Run the application to see the DetailPage.
+
+<img src="./images/app-designer-myworkorders-detailpage.png" alt="image" width="800px" height="auto">
+
+### Action Buttons
+
+Behind the `Start`, `Stop` and `Finish` buttons there is already some JavaScript code.
+
+The `Start` button will disable the `Start` button and enable the `Stop` button. You can locate the code behind the `Events` in the Control Tree.
+
+<img src="./images/app-designer-actionbuttons.png" alt="image" width="800px" height="auto">
+
+
+The Actual Start Time and End Time will be stored in the local cache model. We can calculate the `Actual` time with these values and then store them later in SAP on the Maintenance Order. Let's update the code of the `Stop` button to calculate the hours.
+
+
 ```js
-modelWorkOrderDetailPage.setProperty("/StopTime", new Date());
+const startTime = modelWorkOrderDetailPage.getProperty("/StartTime");
+const current = new Date();
+const actualHours = Math.ceil((current - startTime)/1000/60/60);
+
+modelWorkOrderDetailPage.setProperty("/StopTime", current);
+
+// Store the actual value on the first item of the Operations
+modelWorkOrderDetailPage.setProperty("/to_MaintOrderOperation/results/0/Actual", actualHours);
+
 setCacheWorkOrders();
 
 StopButton.setEnabled(false);
 FinishButton.setEnabled(true);
 ```
 
+> !NOTE In this code we cheat a little bit but storing the Actual value only on the first operation. In the final application we can do this calculation for each operation separately. In this demo we only have Order with a Single Operation so it's fine for this example only.
 
-FinishButton-press
+You can test this logic and see it online by Activation and running the application again.
+
+### Offline test
+
+By using the MultiModel and caching functionalities we can run this application in offline mode. Let's test that with the Chrome Browser.
+
+> !NOTE In this example I am using the Chrome Browser, but Firefox, Edge, Brave, Safari should have similar functionalities to test offline modes.
+
+Run the application and open the Developer Tools (Command + Option + I). Go to the `Network` tab and select `Offline` from the dropdown
+
+<img src="./images/application-offline.png" alt="image" width="150px" height="auto">
+
+
+![alt text](image.png)
+
+Test if you can still use the Application.
+
+> !NOTE Reloading the complete application in the browser will not work, for that we need to run the application inside of the Launchpad or a Mobile Client to use the comple offline capabilities of Neptune. We will check this later in the final solution.
+
+### Sync to SAP when online again
+
+Go back to the App Designer and add the following code in the `Javascript`
+
 ```js
-modelWorkOrderDetailPage.setProperty("/MaintenanceProcessingPhase", "3");
-modelWorkOrderDetailPage.setProperty("/MaintenanceProcessingPhaseDesc", "Technically completed");
-
-modelWorkOrders.refresh();
-
-setCacheWorkOrders();
-
-App.to(WorkOrderListPage);
-```
-
-SyncButton
-```js
-sync();
-```
-
-RefreshButton
-```js
-jQuery.sap.require("sap.m.MessageBox");
-
-
-
-
-sap.m.MessageBox.warning("Refresh the data from SAP?", {
-    actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
-    emphasizedAction: sap.m.MessageBox.Action.OK,
-    onClose: function (action) {
-        if (action === "OK") {
-            refresh();
-        }
-    },
-});
-```
-
-Init
-```js
-function cacheInitLoadFinished() {
-    const orders = modelWorkOrders.getProperty("/orders") || [];
-
-    const filter1 = new sap.ui.model.Filter("MaintOrdPersonResponsible", "EQ", "57");
-    const filters = [filter1];
-
-    createODataMaintenanceOrder({});
-    ODataMaintenanceOrder.read("/C_ObjPgMaintOrder", {
-        filters: filters,
-        urlParameters: "$expand=to_MaintOrderOperation",
-        success: function (oData) {
-            modelWorkOrders.setProperty("/orders", oData.results);
-            setCacheWorkOrders();
-        },
-    });
-}
-
-function refresh() {
-    // TODO
-    ODataMaintenanceOrder.read("/C_ObjPgMaintOrder", {
-        filters: filters,
-        urlParameters: "$expand=to_MaintOrderOperation",
-        success: function (oData) {
-            modelWorkOrders.setProperty("/orders", oData.results);
-            setCacheWorkOrders();
-        },
-    });
-}
-
 async function sync() {
     const orders = modelWorkOrders.getProperty("/orders");
     const completed = orders.filter((order) => order.MaintenanceProcessingPhase === "3");
@@ -354,7 +410,7 @@ async function sync() {
                 MaintenanceOrder: x.MaintenanceOrder,
                 MaintenanceOrderOperation: x.MaintenanceOrderOperation,
                 MaintenanceOrderSubOperation: x.MaintenanceOrderSubOperation,
-                Actualworkquantity: 1,
+                Actualworkquantity: x.Actual,
                 Actualworkquantityunit: "HR",
                 Isfinalconfirmation: false,
                 Personnelnumber: 57,
@@ -367,25 +423,70 @@ async function sync() {
 
 function saveActualWork(urlParameters) {
 
+    // TODO make a promise so I can catch success/errors outside of this and attach MessageToast
     ODataMaintenanceOrder.callFunction("/C_MaintOrderOpForActionCreatetimeconf", {
         method: "POST", 
         urlParameters: urlParameters,
         success: function (oData) {
-            debugger;
             console.log("Success:", oData);
         },
         error: function (oError) {
-            debugger;
             console.error("Error:", oError);
         },
     });
 }
 ```
 
-<div style="height: 1200px;">
+This code will be triggered when press the `Sync` button. It will find the Orders which are completed and call the OData Function Import `C_MaintOrderOpForActionCreatetimeconf` for each one.
 
-</div>
-asdfashdjkfhaskjdf
+
+> !NOTE For this demo we will first implement this manual trigger. Later we can add logic to detect the online/offline state and trigger the sync automatically.
+
+<img src="./images/app-designer-sync.png" alt="image" width="800px" height="auto">
+
+Test and Run the application again and check that the Function Import is executed when pressing the `Sync` button.
+
+### Refresh Button
+
+TODO add Refresh button
+
+
+
+RefreshButton code
+```js
+jQuery.sap.require("sap.m.MessageBox");
+
+sap.m.MessageBox.warning("Refresh the data from SAP?", {
+    actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
+    emphasizedAction: sap.m.MessageBox.Action.OK,
+    onClose: function (action) {
+        if (action === "OK") {
+            refresh();
+        }
+    },
+});
+```
+
+Javascript code
+```js
+function refresh() {
+    // TODO
+    ODataMaintenanceOrder.read("/C_ObjPgMaintOrder", {
+        filters: filters,
+        urlParameters: "$expand=to_MaintOrderOperation",
+        success: function (oData) {
+            modelWorkOrders.setProperty("/orders", oData.results);
+            setCacheWorkOrders();
+        },
+    });
+}
+```
+
+## 4. Integration of SAP BTP Translation Hub Service
+
+TODO SAP BTP Translation Hub Integration
+
+
 
 
 
