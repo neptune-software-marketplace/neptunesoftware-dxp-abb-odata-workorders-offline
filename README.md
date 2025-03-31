@@ -6,9 +6,13 @@ The following topics are covered in this README.
 
 1. Installation of Neptune DXP - Open Edition SAP BTP
 2. Neptune Application using S/4 HANA Public Cloud OData Service (Online)
-3. Neptune Work Order applications with offline capabilities using standard OData services
+3. Neptune Work Order application with offline capabilities using standard OData services
 4. Integration of SAP BTP Translation Hub Service
-
+5. Final result. Neptune Work Order application using
+    - Offline capabilities
+    - OData Service (Update Order + Store attachments)
+    - PDF Designer
+    - Signature building block
 
 
 ## 1. Install Neptune DXP - Open Edition on SAP BTP Trial (optional)
@@ -300,13 +304,15 @@ This is a function which retrieves the SAP Work Orders with an ODataModel read c
 
 ### cacheInitLoadFinished
 
-In the `cacheInitLoadFinished` we will add some logic to retrieve the SAP Work Orders when we are in online mode.
+In the `cacheInitLoadFinished` we will add some logic to retrieve the SAP Work Orders when we are in online mode and if there is nothing cached yet. 
 
 ```js
 function cacheInitLoadFinished() {
+
+    const orders = modelWorkOrders.getProperty("/orders") || [];
     
-    // When online retrieve SAP Data
-    if (navigator.onLine) {
+    // Retrieve SAP data only when online and no Work Orders in cache
+    if (navigator.onLine && orders.length === 0) {
         getSAPWorkOrders();
     }
 }
@@ -398,12 +404,6 @@ async function sync() {
     const completed = orders.filter((order) => order.MaintenanceProcessingPhase === "3");
 
     for (const order of completed) {
-        //const contents = await fs.readFile(file, "utf8");
-        console.log(order);
-
-        var options = {
-            data: order,
-        };
 
         order.to_MaintOrderOperation?.results?.forEach(x=>{
             const urlParameters = {
@@ -444,13 +444,13 @@ This code will be triggered when press the `Sync` button. It will find the Order
 
 <img src="./images/app-designer-sync.png" alt="image" width="800px" height="auto">
 
-Test and Run the application again and check that the Function Import is executed when pressing the `Sync` button.
+Test and Run the application again and check that the Function Import is executed when pressing the `Sync` button. To see the changes in SAP open transaction `IW33` Display Maintenance Order and check the Operations tab.
 
 ### Refresh Button
 
-TODO add Refresh button
+To enforce a reforce from SAP we can implement the following logic behind the `RefreshButton` button.
 
-
+Find the button in the Control Tree and add the following JavaScript code behind the button press event:
 
 RefreshButton code
 ```js
@@ -461,40 +461,103 @@ sap.m.MessageBox.warning("Refresh the data from SAP?", {
     emphasizedAction: sap.m.MessageBox.Action.OK,
     onClose: function (action) {
         if (action === "OK") {
-            refresh();
+            getSAPWorkOrders();
         }
     },
 });
 ```
 
-Javascript code
+<img src="./images/app-designer-refresh-button.png" alt="image" width="800px" height="auto">
+
+## 4. Integration of SAP BTP Translation Hub Service
+
+In this section we will add the [SAP BTP Translation Hub Service](https://discovery-center.cloud.sap/serviceCatalog/sap-translation-hub?region=all)
+
+> !NOTE
+> We will first use the Sandbox API from the Business Accelerator Hub to test it with our application. For Productive usage you will need to activate the SAP BTP service in your own subaccount. You can easily update the configuration for the Productive usage in the API Designer and Proxy Authentication for this. 
+
+Go to the Business Accelerator Hub and open the [Document Translation API](https://api.sap.com/api/documenttranslation/resource/Synchronous_Document_Translation) 
+
+- Click on `Show API Key` and copy the value for later use
+
+Go to the Neptune Cockpit and open the `API Designer` tool. Press the `Create` button to create a new API.
+
+Fill in a name eg. `TranslationHubAPI` and enter the endpoint and press `Create`
+
+```
+https://sandbox.api.sap.com/sapdocumenttranslation
+```
+
+<img src="./images/api-designer-create.png" alt="image" width="300px" height="auto">
+
+In the `General` tab select `Enable Proxy`.
+
+Add a new Operation in the Operations tab
+
+path: `/translation`
+method: `POST`
+
+
+In the `Authentication` tab on top add the `S/4HANA Cloud Sandbox API`
+
+> !NOTE
+> We can re-use the APIkey we used previously for the S/4HANA Public Cloud API.
+
+<img src="./images/api-designer-authentication.png" alt="image" width="800px" height="auto">
+
+
+Open the `myworkorders` application again in the App Designer.
+
+- Add a new RestAPI to the `Resources`
+- Rename it to `TranslationHubAPI`
+- Select the `TranslationHubAPI` as REST API and POST operation.
+
+<img src="./images/api-designer-translationhubapi.png" alt="image" width="800px" height="auto">
+
+Add a new `Button` to the CommentsPanel
+
+- Rename it to `TranslateButton`
+- Add the text `Translate`
+- Select the type `Emphasized`
+
+<img src="./images/app-designer-refresh-button.png" alt="image" width="800px" height="auto">
+
+
+Add the following function to `Javascript`
+
 ```js
-function refresh() {
-    // TODO
-    ODataMaintenanceOrder.read("/C_ObjPgMaintOrder", {
-        filters: filters,
-        urlParameters: "$expand=to_MaintOrderOperation",
-        success: function (oData) {
-            modelWorkOrders.setProperty("/orders", oData.results);
-            setCacheWorkOrders();
-        },
+function translate() {
+    const payload = {
+        sourceLanguage: "en-US",
+        targetLanguage: "de-DE",
+        contentType: "text/plain",
+        encoding: "plain",
+        strictMode: "false",
+        data: CommentsTextArea.getValue(),
+    };
+    var options = {
+        data: payload,
+    };
+
+    apiTranslationHubAPI(options).then(function (response) {
+        TranslatedTextArea.setValue(response.data);
     });
 }
 ```
 
-## 4. Integration of SAP BTP Translation Hub Service
+Behind the `press` event call this new function `translate()`
 
-TODO SAP BTP Translation Hub Integration
+Activate and Run the application and you can now test the translation function, by entering some text and press the `Translate` button.
+Currently as seen in the code snippet, we translate from English (en-US) to German (de-DE). Feel free to change this to your prefered languages.
 
+<img src="./images/application-translation.png" alt="image" width="800px" height="auto">
 
+## 5. My Work Order application
 
-
-
-
-
-
-
-
-
-
+The final result is the application you can import directly from the Marketplace or via Github. This application consist of the `My Work Orders` application we showcased above with the following functionalities:
+- Offline capabilities
+- OData Service usage for Update Maintenance Orders and storing Attachments
+- Camera/Photo upload
+- Signature Build block
+- PDF Designer to create and design PDF with Work Order data + attachments
 
