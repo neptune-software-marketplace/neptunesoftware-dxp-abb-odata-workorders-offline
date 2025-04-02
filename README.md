@@ -4,16 +4,11 @@ This repository contains the instructions to develop Clean-Core Side-by-side ext
 
 The following topics are covered in this README.
 
-1. Installation of Neptune DXP - Open Edition SAP BTP
-2. Neptune Application using S/4 HANA Public Cloud OData Service (Online)
-3. Neptune Work Order application with offline capabilities using standard OData services
-4. Integration of SAP BTP Translation Hub Service
-5. Final result. Neptune Work Order application using
-    - Offline capabilities
-    - OData Service (Update Order + Store attachments)
-    - PDF Designer
-    - Signature building block
-
+1. [Installation of Neptune DXP - Open Edition SAP BTP](#1-install-neptune-dxp---open-edition-on-sap-btp-trial-optional)
+2. [Neptune Application using S/4 HANA Public Cloud OData Service (Online)](#2-neptune-application-using-s4-hana-public-cloud-odata-service)
+3. [Neptune Work Order application with offline capabilities using standard OData services](#3-neptune-work-order-applications-with-offline-capabilities)
+4. [Integration of SAP BTP Translation Hub Service](#4-integration-of-sap-btp-translation-hub-service)
+5. [Final result - Neptune Work Order application](#5-my-work-order-application)
 
 ## 1. Install Neptune DXP - Open Edition on SAP BTP Trial (optional)
 
@@ -83,7 +78,7 @@ Enter a name for your application eg. `workorders` and press `Create`
 <img src="./images/app-designer-create2.png" alt="image" width="800px" height="auto">
 
 > [!NOTE]  
-> It's a good practice to store every artefact in a Package so you can easily transport it and have version control via Git.
+> It's a good practice to store every artefact in a Package so you can easily transport it and use version control with Git.
 
 We now created an empty application in the `App Designer`
 
@@ -242,6 +237,8 @@ We now have our first Neptune Application using a standard OData service. We can
 
 ## 3. Neptune Work Order applications with offline capabilities
 
+Download the [MyWorkOrdersOffline-start.planet9](https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-odata-workorders-offline/blob/master/MyWorkOrdersOffline-start.planet9) from the GitHub repository and store in locally.
+
 From the Neptune Cockpit open the `App Designer` and press `Create from File`.
 
 <img src="./images/app-designer-create-from-file.png" alt="image" width="600px" height="auto">
@@ -254,7 +251,7 @@ The newly created application contains all the UI5 elements for the `My Work Ord
 
 ### ODataSource
 
-Drag the `ODataSource` control to the `Resources` and rename it to `ODataMaintenanceOrder`
+Drag the `ODataSource` control to the `Resources` and rename it to `ODataMaintenanceOrder`. Select `EAM_OBJPG_MAINTENANCEORDER_SRV` as OData Source.
 
 <img src="./images/app-designer-odatasource2.png" alt="image" width="800px" height="auto">
 
@@ -394,7 +391,7 @@ Test if you can still use the Application.
 
 > !NOTE Reloading the complete application in the browser will not work, for that we need to run the application inside of the Launchpad or a Mobile Client to use the comple offline capabilities of Neptune. We will check this later in the final solution.
 
-### Sync to SAP when online again
+### Sync to SAP when online
 
 Go back to the App Designer and add the following code in the `Javascript`
 
@@ -437,7 +434,11 @@ function saveActualWork(urlParameters) {
 }
 ```
 
-This code will be triggered when press the `Sync` button. It will find the Orders which are completed and call the OData Function Import `C_MaintOrderOpForActionCreatetimeconf` for each one.
+This code will be triggered when press the `Sync` button. It will find the Orders which are completed and call the OData Function Import `C_MaintOrderOpForActionCreatetimeconf` for each operation to save the Actual Work.
+
+To trigger this sync function add the `sync()` behind the press event of the SyncButton.
+
+<img src="./images/app-designer-sync-button.png" alt="image" width="400px" height="auto">
 
 
 > !NOTE For this demo we will first implement this manual trigger. Later we can add logic to detect the online/offline state and trigger the sync automatically.
