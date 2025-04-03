@@ -13,9 +13,38 @@ The following topics are covered in this README.
 ## 1. Install Neptune DXP - Open Edition on SAP BTP Trial (optional)
 
 Install Neptune Open Edition on SAP BTP. 
-https://docs.neptune-software.com/neptune-dxp-open-edition/24/installation-guide/install-neptune-dxp-open-edition-on-btp-with-postgreSQL.html
 
-TODO: Use text/screenshots from documentation. Enhance if needed.
+The full documenation for installing Neptune DXP - Open Edition on SAP BTP Cloud Foundry can be found here: https://docs.neptune-software.com/neptune-dxp-open-edition/24/installation-guide/install-neptune-dxp-open-edition-on-btp-with-postgreSQL.html
+
+Login to Cloud Foundry
+```bash
+cf login -a API Endpoint
+```
+
+Push Neptune planet9 Docker Container
+```bash
+cf push neptune-dxp -m 4096M -k 4096M --no-start --random-route --docker-image docker.io/neptunesoftware/planet9:v24.11.0
+```
+
+Set Environment variables
+```bash
+cf set-env neptune-dxp PLANET9_IP 0.0.0.0
+```
+
+Enable ssh to make connection to PostgreSQL possible.
+```bash
+cf ssh -L 63306:<hostname>:<port> neptune-dxp
+```
+
+```bash
+cf set-env neptune-dxp DB_TYPE postgresql
+cf set-env neptune-dxp DB_URI_POSTGRES <value of uri from dialog>
+cf set-env neptune-dxp DB_PSQL_SSL true
+cf set-env neptune-dxp NODE_TLS_REJECT_UNAUTHORIZED 0
+```
+
+To register for a free trial with 2 developer licenses go to our [website](https://www.neptune-software.com/free-trial)
+
 
 ## 2. Neptune Application using S/4 HANA Public Cloud OData Service
 
@@ -396,7 +425,7 @@ Test if you can still use the Application.
 Go back to the App Designer and add the following code in the `Javascript`
 
 ```js
-async function sync() {
+function sync() {
     const orders = modelWorkOrders.getProperty("/orders");
     const completed = orders.filter((order) => order.MaintenanceProcessingPhase === "3");
 
@@ -419,17 +448,23 @@ async function sync() {
 }
 
 function saveActualWork(urlParameters) {
+    return new Promise(function (resolve, reject) {
 
-    // TODO make a promise so I can catch success/errors outside of this and attach MessageToast
-    ODataMaintenanceOrder.callFunction("/C_MaintOrderOpForActionCreatetimeconf", {
-        method: "POST", 
-        urlParameters: urlParameters,
-        success: function (oData) {
-            console.log("Success:", oData);
-        },
-        error: function (oError) {
-            console.error("Error:", oError);
-        },
+        if (!ODataMaintenanceOrder) {
+            createODataMaintenanceOrder({});
+        }
+        ODataMaintenanceOrder.callFunction("/C_MaintOrderOpForActionCreatetimeconf", {
+            method: "POST",
+            urlParameters: urlParameters,
+            success: function (response) {
+                console.log("Success:", response);
+                resolve(response);
+            },
+            error: function (error) {
+                console.error("Error:", error);
+                resolve(error);
+            },
+        });
     });
 }
 ```
@@ -479,7 +514,10 @@ In this section we will add the [SAP BTP Translation Hub Service](https://discov
 
 Go to the Business Accelerator Hub and open the [Document Translation API](https://api.sap.com/api/documenttranslation/resource/Synchronous_Document_Translation) 
 
-- Click on `Show API Key` and copy the value for later use
+- Click on `Show API Key` and copy the value for later use.
+
+> !NOTE 
+> This API Key will be the same as used before when connecting to the S/4 HANA Public Cloud API. We can re use it.
 
 Go to the Neptune Cockpit and open the `API Designer` tool. Press the `Create` button to create a new API.
 
@@ -546,7 +584,7 @@ function translate() {
 }
 ```
 
-Behind the `press` event call this new function `translate()`
+Behind the `press` event call this new function `translate();`
 
 Activate and Run the application and you can now test the translation function, by entering some text and press the `Translate` button.
 Currently as seen in the code snippet, we translate from English (en-US) to German (de-DE). Feel free to change this to your prefered languages.
@@ -554,6 +592,8 @@ Currently as seen in the code snippet, we translate from English (en-US) to Germ
 <img src="./images/application-translation.png" alt="image" width="800px" height="auto">
 
 ## 5. My Work Order application
+
+The finished application as completed until Step 4 including the BTP Translation Hub can be downloaded from the GitHub repository right [here](https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-odata-workorders-offline/blob/master/MyWorkOrdersOffline-finished.planet9)
 
 The final result is the application you can import directly from the Marketplace or via Github. This application consist of the `My Work Orders` application we showcased above with the following functionalities:
 - Offline capabilities
