@@ -1,0 +1,26 @@
+{
+	"id": "cd08a89d-c54e-4005-a8bf-6de61d1db22c",
+	"createdAt": "2025-04-02T19:20:35.022Z",
+	"createdBy": "admin",
+	"auth": [
+		{
+			"id": "157fcee7-6b88-492c-ff0d-cc2ff0a0dcad",
+			"role": "DEF",
+			"apiAuth": "d316670b-9056-4d7e-9872-3b8e7d23ddf8",
+			"authName": "S4IDES - GTM2",
+			"authDesc": ""
+		}
+	],
+	"endpoints": {},
+	"name": "HCMFAB_COMMON_SRV",
+	"ver": "25.04.02.1923",
+	"description": "Employee Detail OData Service",
+	"version": null,
+	"endpoint": "https://s4ides.neptune-software.com/sap/opu/odata/sap/HCMFAB_COMMON_SRV/",
+	"enableProxy": true,
+	"enableIDE": true,
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",
+	"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007",
+	"tlsAllowUntrusted": false,
+	"odataVersion": "v2"
+}

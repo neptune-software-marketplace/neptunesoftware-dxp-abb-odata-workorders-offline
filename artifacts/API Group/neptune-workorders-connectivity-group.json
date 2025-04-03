@@ -1,0 +1,9 @@
+{
+	"id": "8fa4492f-f414-43f5-a57d-283a4cc93007",
+	"createdAt": "2025-04-02T19:18:07.760Z",
+	"createdBy": "admin",
+	"name": "neptune-workorders-connectivity-group",
+	"description": "Connectivity group for neptune-workorders APIs.",
+	"ver": "25.04.02.1918",
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20"
+}

@@ -1,0 +1,41 @@
+{
+	"id": "a33c625b-74fb-4f39-af44-0d7c9580b4b0",
+	"createdAt": "2024-11-13T21:51:34.596Z",
+	"createdBy": "admin",
+	"globalScripts": [],
+	"externalModules": [],
+	"entitySets": [
+		{
+			"id": "d5badece-0d06-4c9b-bea6-bdc185d271a3",
+			"name": "workorders",
+			"contextname": "workorders"
+		}
+	],
+	"apis": [
+		{
+			"id": "70586d75-eef6-4cb5-8b73-6231c231881a",
+			"parent": "0eaa1f6f-d832-413e-b45c-eaac6400852b",
+			"name": "/AttachmentContentSet",
+			"contextname": "uploadAttachment",
+			"method": "POST"
+		},
+		{
+			"id": "44050e7d-fc4d-4924-8b9e-719cb5a5c154",
+			"parent": "a5b04921-5ca3-ef11-88cf-0022489c9842",
+			"name": "/AttachmentContentSet",
+			"contextname": "uploadAttachment",
+			"method": "POST"
+		}
+	],
+	"name": "createPDF",
+	"ver": "25.04.03.1113",
+	"description": null,
+	"folder": "",
+	"content": "file:///content.js",
+	"useAsGlobalScript": false,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "4415709b-4968-460f-8622-d2c6b781cb96",
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20"
+}

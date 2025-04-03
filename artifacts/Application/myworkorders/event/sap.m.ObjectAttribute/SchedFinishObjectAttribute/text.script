@@ -1,0 +1,3 @@
+// if (typeof ScheduledBasicEndDate === "undefined" || ScheduledBasicEndDate === null || ScheduledBasicEndDate === "") { return; }  
+// var formattedText = ScheduledBasicEndDate; 
+// return formatJSONDate(formattedText);

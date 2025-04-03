@@ -1,0 +1,3 @@
+// if (typeof MaintOrdSchedBasicStartDate === "undefined" || MaintOrdSchedBasicStartDate === null || MaintOrdSchedBasicStartDate === "") { return; }  
+// var formattedText = MaintOrdSchedBasicStartDate; 
+// return formatJSONDate(formattedText);

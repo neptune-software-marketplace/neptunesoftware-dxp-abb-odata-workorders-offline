@@ -1,0 +1,67 @@
+{
+	"id": "a5b04921-5ca3-ef11-88cf-0022489c9842",
+	"createdAt": "2024-11-15T14:15:57.280Z",
+	"createdBy": "leo.vanhengel@neptune-software.com",
+	"auth": [
+		{
+			"role": "DEF",
+			"apiAuth": "d316670b-9056-4d7e-9872-3b8e7d23ddf8",
+			"authName": "S4IDES - GTM2",
+			"authDesc": "",
+			"id": "2f0b5bd2-b1da-49cc-b3e5-c75a7c2e5095"
+		}
+	],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "44050e7d-fc4d-4924-8b9e-719cb5a5c154",
+			"method": "POST",
+			"path": "/AttachmentContentSet",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": []
+		},
+		{
+			"id": "6d33f482-47c9-4166-c9f5-90bb70cdd969",
+			"method": "GET",
+			"path": "/AttachmentContentSet",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": []
+		}
+	],
+	"definitions": [],
+	"documentation": [],
+	"name": "AttachmentContentSet",
+	"endpoint": "https://s4ides.neptune-software.com/sap/opu/odata/sap/API_CV_ATTACHMENT_SRV",
+	"ver": "25.04.03.1119",
+	"version": null,
+	"description": null,
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": null,
+	"enableProxy": true,
+	"forwardProxy": null,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",
+	"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007",
+	"apiFormat": 1,
+	"roles": []
+}

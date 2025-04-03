@@ -1,0 +1,149 @@
+{
+	"id": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",
+	"createdAt": "2025-04-02T19:13:13.623Z",
+	"createdBy": "admin",
+	"git": {
+		"remote": "https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-odata-workorders-offline.git",
+		"branch": "master"
+	},
+	"name": "neptunesoftware-dxp-abb-odata-workorders-offline",
+	"description": "Neptune DXP Open Edition Work Order applications with offline capabilities using standard OData services  Resources",
+	"ver": "25.04.03.1150",
+	"enableCICD": true,
+	"internalReadOnly": false,
+	"oeVersion": null,
+	"excludeTemplateFiles": false,
+	"roles": [],
+	"apps": [
+		{
+			"id": "bfaadcaf-1f95-45ab-8f98-b23238e3a41f",
+			"application": "workordermanager_odata",
+			"title": "",
+			"description": ""
+		},
+		{
+			"id": "88671643-17ed-4d7d-a302-66258951970d",
+			"application": "myworkorders",
+			"title": "",
+			"description": ""
+		}
+	],
+	"api": [
+		{
+			"id": "a5b04921-5ca3-ef11-88cf-0022489c9842",
+			"name": "AttachmentContentSet",
+			"description": null,
+			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
+		},
+		{
+			"id": "a22d6075-3154-4630-8a00-bca1be5c83f2",
+			"name": "workorders tables",
+			"description": null,
+			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
+		},
+		{
+			"id": "682e5416-90d9-4846-9644-3e0003df6e38",
+			"name": "workorder scripts",
+			"description": null,
+			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
+		}
+	],
+	"odataSource": [
+		{
+			"id": "cd08a89d-c54e-4005-a8bf-6de61d1db22c",
+			"name": "HCMFAB_COMMON_SRV",
+			"description": "Employee Detail OData Service",
+			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
+		},
+		{
+			"id": "baa66469-4811-4e46-bcc6-9d39b2c6ecde",
+			"name": "EAM_OBJPG_MAINTENANCEORDER_SRV",
+			"description": "Plant Maintenance Workorder OData v2 service",
+			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
+		}
+	],
+	"odataMock": [],
+	"dictionary": [
+		{
+			"id": "d5badece-0d06-4c9b-bea6-bdc185d271a3",
+			"name": "workorders",
+			"description": null
+		}
+	],
+	"jsclass": [
+		{
+			"id": "a33c625b-74fb-4f39-af44-0d7c9580b4b0",
+			"name": "createPDF",
+			"description": null
+		}
+	],
+	"jsscript_group": [
+		{
+			"id": "4415709b-4968-460f-8622-d2c6b781cb96",
+			"name": "workorder",
+			"description": ""
+		}
+	],
+	"theme": [],
+	"pdf": [
+		{
+			"id": "e67f7b24-57ee-4fd5-911a-3e72cfcb8a03",
+			"application": "workorder_pdf",
+			"description": ""
+		}
+	],
+	"rulesengine": [],
+	"reports": [],
+	"api_authentication": [],
+	"api_group": [
+		{
+			"id": "8fa4492f-f414-43f5-a57d-283a4cc93007",
+			"name": "neptune-workorders-connectivity-group",
+			"description": "Connectivity group for neptune-workorders APIs."
+		}
+	],
+	"tile": [
+		{
+			"id": "a41b7d66-d54d-4a30-b523-74443290e1db",
+			"description": null,
+			"name": "My Work Orders"
+		},
+		{
+			"id": "50ac9f96-7bfc-41dc-95a8-0e066cf1e05d",
+			"description": null,
+			"name": "Work Order Manager"
+		}
+	],
+	"tile_layout": [],
+	"category": [
+		{
+			"id": "683400bf-6f38-4d14-bd7c-7588a7c60c9a",
+			"description": null,
+			"name": "Work Order Tile Group"
+		}
+	],
+	"tilegroup_layout": [],
+	"launchpad": [
+		{
+			"id": "2542caba-a556-4984-bcf9-eec68a55808c",
+			"name": "Workorders",
+			"description": null
+		}
+	],
+	"launchpad_layout": [],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"department": [],
+	"script_scheduler": [],
+	"wf_definition": [],
+	"connector": [],
+	"events": [],
+	"code_snippets": [],
+	"wf_determination": [],
+	"wf_taskaction": [],
+	"theme_ui5": [],
+	"webapp": []
+}

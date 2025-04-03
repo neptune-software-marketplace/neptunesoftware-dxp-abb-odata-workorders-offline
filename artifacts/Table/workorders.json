@@ -1,0 +1,59 @@
+{
+	"id": "d5badece-0d06-4c9b-bea6-bdc185d271a3",
+	"createdAt": "2024-11-12T15:34:20.816Z",
+	"createdBy": "admin",
+	"fields": [
+		{
+			"id": "4ce1f31e-9c5b-4a37-9fc2-12a2f758a131",
+			"fieldName": "OrderID",
+			"fieldType": "text",
+			"isUnique": false
+		},
+		{
+			"id": "a42804b8-2551-474a-991d-c3bd69bf09bb",
+			"fieldName": "BeforeImage",
+			"fieldType": "text",
+			"isUnique": false,
+			"isNullable": true
+		},
+		{
+			"id": "fddefdaa-ea46-473b-b525-5aafaa2ff280",
+			"fieldName": "AfterImage",
+			"fieldType": "text",
+			"isUnique": false,
+			"isNullable": true
+		},
+		{
+			"id": "10705491-7511-4396-9358-d5a99ddf9fd7",
+			"fieldName": "Signature",
+			"fieldType": "text",
+			"isUnique": false,
+			"isNullable": true
+		},
+		{
+			"id": "56d7b087-6d52-4c8b-e76b-f84c79b7070e",
+			"fieldName": "PDF",
+			"fieldType": "text",
+			"isUnique": false,
+			"isNullable": true
+		},
+		{
+			"id": "86abaae6-2475-4c54-d45e-6a260ec47765",
+			"fieldName": "Comments",
+			"fieldType": "text",
+			"isUnique": false,
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "workorders",
+	"description": null,
+	"ver": "25.04.03.1135",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",
+	"generationStrategy": null,
+	"rolesRead": [],
+	"rolesWrite": []
+}

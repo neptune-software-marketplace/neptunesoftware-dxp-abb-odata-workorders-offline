@@ -1,0 +1,359 @@
+{
+	"id": "a22d6075-3154-4630-8a00-bca1be5c83f2",
+	"createdAt": "2024-11-14T20:45:06.435Z",
+	"createdBy": "admin",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "6dd392db-c7dc-4cf4-94b2-13f88d9997f3",
+			"path": "/workorders",
+			"method": "GET",
+			"headers": [],
+			"parameters": [
+				{
+					"name": "where",
+					"description": [
+						"==OBJECT STRING==",
+						"{ \"fieldName\": \"value\"}  or { \"fieldName\": \"Not(value)\"} or { \"fieldName\": \"Between(1,10)\"}",
+						"            or {fieldName: In([\"value1\", \"value2\"])}",
+						"            Other operators - LessThan(value), LessThanOrEqual(value), MoreThan(value), MoreThanOrEqual(value), Like(value), Any(value), IsNull(value), Raw(value)"
+					]
+				},
+				{
+					"name": "select",
+					"description": "fieldName1, fieldname2, fieldName3"
+				},
+				{
+					"name": "take",
+					"description": "Limit (paginated) - max number of entities that should be taken"
+				},
+				{
+					"name": "skip",
+					"description": "Offset (paginated) from where entities should be taken"
+				},
+				{
+					"name": "order",
+					"description": "{\"fieldName1\": \"ASC\", \"fieldName2\": \"DESC\"}"
+				}
+			],
+			"content": [],
+			"responses": [
+				{
+					"status": 200,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "array",
+							"name": "workorders"
+						}
+					]
+				},
+				{
+					"status": 400,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "object",
+							"name": "Error"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "83014e8d-5898-405b-af96-21f56526fa70",
+			"path": "/workorders",
+			"method": "PUT",
+			"headers": [],
+			"parameters": [],
+			"content": [
+				{
+					"objectTyoe": "array",
+					"name": "workorders"
+				}
+			],
+			"responses": [
+				{
+					"status": 200,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "array",
+							"name": "workorders"
+						}
+					]
+				},
+				{
+					"status": 400,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "object",
+							"name": "Error"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "c760940a-9874-4806-8a78-203bc2423b06",
+			"path": "/workorders",
+			"method": "POST",
+			"headers": [],
+			"parameters": [
+				{
+					"name": "where",
+					"example": [
+						"==OBJECT STRING==",
+						"{ \"fieldName\": \"value\"}  or { \"fieldName\": \"Not(value)\"} or { \"fieldName\": \"Between(1,10)\"}",
+						"            or {fieldName: In([\"value1\", \"value2\"])}",
+						"            Other operators - LessThan(value), LessThanOrEqual(value), MoreThan(value), MoreThanOrEqual(value), Like(value), Any(value), IsNull(value), Raw(value)"
+					]
+				}
+			],
+			"content": [
+				{
+					"objectTyoe": "array",
+					"name": "workorders"
+				}
+			],
+			"responses": [
+				{
+					"status": 200,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "array",
+							"name": "workorders"
+						}
+					]
+				},
+				{
+					"status": 400,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "object",
+							"name": "Error"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "2cad24f1-da3a-48b6-ad54-f24b122cdc8d",
+			"path": "/workorders",
+			"method": "DELETE",
+			"headers": [],
+			"parameters": [
+				{
+					"name": "where",
+					"example": [
+						"==OBJECT STRING==",
+						"{ \"fieldName\": \"value\"}  or { \"fieldName\": \"Not(value)\"} or { \"fieldName\": \"Between(1,10)\"}",
+						"            or {fieldName: In([\"value1\", \"value2\"])}",
+						"            Other operators - LessThan(value), LessThanOrEqual(value), MoreThan(value), MoreThanOrEqual(value), Like(value), Any(value), IsNull(value), Raw(value)"
+					]
+				}
+			],
+			"content": [],
+			"responses": [
+				{
+					"status": 200,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "array",
+							"name": "workorders"
+						}
+					]
+				},
+				{
+					"status": 400,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "object",
+							"name": "Error"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "8db4b904-d049-4d3e-aebd-c3bcec8f7907",
+			"path": "/workorders/count",
+			"method": "GET",
+			"headers": [],
+			"parameters": [
+				{
+					"name": "where",
+					"description": [
+						"==OBJECT STRING==",
+						"{ \"fieldName\": \"value\"}  or { \"fieldName\": \"Not(value)\"} or { \"fieldName\": \"Between(1,10)\"}",
+						"            or {fieldName: In([\"value1\", \"value2\"])}",
+						"            Other operators - LessThan(value), LessThanOrEqual(value), MoreThan(value), MoreThanOrEqual(value), Like(value), Any(value), IsNull(value), Raw(value)"
+					]
+				}
+			],
+			"content": [],
+			"responses": [
+				{
+					"status": 200,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "object",
+							"name": "count"
+						}
+					]
+				},
+				{
+					"status": 400,
+					"headers": [],
+					"content": [
+						{
+							"objectType": "object",
+							"name": "Error"
+						}
+					]
+				}
+			]
+		}
+	],
+	"definitions": [
+		{
+			"id": "4562f73b-8a7a-4ac0-a496-565e0cbeee61",
+			"name": "workorders",
+			"properties": [
+				{
+					"id": "b14cd0f1-4f7c-4c5e-b5c3-b00cfc8a92ff",
+					"parent": "",
+					"name": "id",
+					"description": "Unique record ID",
+					"objectType": "string"
+				},
+				{
+					"id": "5e6f660d-00ee-44bf-8a75-bf7a62fb8472",
+					"parent": "",
+					"name": "OrderID",
+					"objectType": "string"
+				},
+				{
+					"id": "c86f43ca-0143-4c21-ad51-aed29fb3aaac",
+					"parent": "",
+					"name": "BeforeImage",
+					"objectType": "string"
+				},
+				{
+					"id": "e8faf7a2-a63f-4172-9625-bcfb34fa5aed",
+					"parent": "",
+					"name": "AfterImage",
+					"objectType": "string"
+				},
+				{
+					"id": "adeb8c7d-29c9-4e2d-8041-facba0576127",
+					"parent": "",
+					"name": "Signature",
+					"objectType": "string"
+				},
+				{
+					"id": "15bc39c1-7a31-4a3c-b5df-4862ef5fb2b8",
+					"parent": "",
+					"name": "PDF",
+					"objectType": "string"
+				},
+				{
+					"id": "0a30a909-7d64-408e-9566-7c18979830d6",
+					"parent": "",
+					"name": "Comments",
+					"objectType": "string"
+				},
+				{
+					"id": "6d3a63b5-c21f-46c4-abd4-451df4eb9ec9",
+					"parent": "",
+					"name": "createdAt",
+					"description": "Date when record was created",
+					"objectType": "number"
+				},
+				{
+					"id": "837e6b31-c38e-4f09-9cac-1c7392794047",
+					"parent": "",
+					"name": "createdBy",
+					"description": "Created by",
+					"objectType": "string"
+				},
+				{
+					"id": "a0b25318-8d40-4536-9b42-e0fb45fd33cc",
+					"parent": "",
+					"name": "updatedAt",
+					"description": "Date when record was updated",
+					"objectType": "number"
+				},
+				{
+					"id": "b28cb9db-abd7-451a-a802-ea71af0fd319",
+					"parent": "",
+					"name": "updatedBy",
+					"description": "Updated by",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "20069022-94ca-4778-b96f-7e16162dfd93",
+			"name": "Error",
+			"properties": [
+				{
+					"id": "c7147a2a-d29a-4264-bda0-e3a8f9c9ba72",
+					"parent": "",
+					"name": "status",
+					"objectType": "string"
+				},
+				{
+					"id": "7a5518d2-d1a9-487a-9724-2710df03dd06",
+					"parent": "",
+					"name": "message",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "5b9e35ca-5bec-46e0-856f-1044cdb478ce",
+			"name": "count",
+			"properties": [
+				{
+					"id": "e6b6af73-33a6-48f7-8d9a-6db3bed212df",
+					"parent": "",
+					"name": "count",
+					"objectType": "number"
+				}
+			]
+		}
+	],
+	"documentation": [],
+	"name": "workorders tables",
+	"endpoint": "/api/entity",
+	"ver": "25.04.03.0948",
+	"version": null,
+	"description": null,
+	"mediaType": "application/json",
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "table",
+	"about": null,
+	"enableProxy": false,
+	"forwardProxy": null,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",
+	"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007",
+	"apiFormat": 0,
+	"roles": []
+}
