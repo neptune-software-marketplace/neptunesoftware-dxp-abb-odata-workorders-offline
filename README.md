@@ -128,13 +128,6 @@ Continue and add the following controls to the App structure.
 
 <img src="./images/app-designer-controls.png" alt="image" width="400px" height="auto">
 
-
-
-Select the `DynamicPage` and set the `title` attribute to `Work Orders`
-
-<img src="./images/app-designer-title.png" alt="image" width="800px" height="auto">
-
-
 Select `ODataSource` on the left and select the previously configure OData Source `MaintenanceOrderOData` on the right
 
 <img src="./images/app-designer-odatasource.png" alt="image" width="800px" height="auto">
@@ -397,9 +390,6 @@ Run the application and open the Developer Tools (Command + Option + I). Go to t
 
 <img src="./images/application-offline.png" alt="image" width="150px" height="auto">
 
-
-![alt text](image.png)
-
 Test if you can still use the Application.
 
 > !NOTE Reloading the complete application in the browser will not work, for that we need to run the application inside of the Launchpad or a Mobile Client to use the comple offline capabilities of Neptune. We will check this later in the final solution.
@@ -414,8 +404,7 @@ function sync() {
     const completed = orders.filter((order) => order.MaintenanceProcessingPhase === "3");
 
     for (const order of completed) {
-
-        order.to_MaintOrderOperation?.results?.forEach(x=>{
+        order.to_MaintOrderOperation?.results?.forEach((x) => {
             const urlParameters = {
                 MaintenanceOrder: x.MaintenanceOrder,
                 MaintenanceOrderOperation: x.MaintenanceOrderOperation,
@@ -423,11 +412,20 @@ function sync() {
                 Actualworkquantity: x.Actual,
                 Actualworkquantityunit: "HR",
                 Isfinalconfirmation: false,
-                Personnelnumber: 57,
-                Postingdate: new Date()
+                Personnelnumber: 57, // Hardcoded for now
+                Postingdate: new Date(),
             };
-            saveActualWork(urlParameters);
-        })
+            saveActualWork(urlParameters)
+                .then(function (data) {
+                    sap.m.MessageToast.show("Maintenance Orders synced succesfully");
+                })
+                .catch(function (error) {
+                    const errorMessage = JSON.parse(error?.responseText).error?.message?.value;
+                    sap.m.MessageToast.show(errorMessage, {
+                        duration: 100000,
+                    });
+                });
+        });
     }
 }
 
