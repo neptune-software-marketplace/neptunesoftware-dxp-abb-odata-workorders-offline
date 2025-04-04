@@ -48,7 +48,7 @@ To register for a free trial with 2 developer licenses go to our [website](https
 
 ## 2. Neptune Application using S/4 HANA Public Cloud OData Service
 
-The first application we are developing with the Neptune Open Edition App Designer will use the SAP S/4HANA Cloud Public Edition Maintenance Order OData v2 service from [api.sap.com](https://api.sap.com/package/SAPS4HANACloud/odata)
+The first application we are developing with the Neptune Open Edition App Designer will use the SAP S/4HANA Cloud Public Edition Maintenance Order OData v2 service from [api.sap.com](hhttps://api.sap.com/api/CE_API_MAINTENANCEORDER_0002/resource/Maintenance_Order)
 
 > [!NOTE]  
 > This service from the Business Accelerato Hub is read-only
@@ -170,25 +170,9 @@ The Application will show the Table and the configured columns, but no data is s
 
 <img src="./images/app-designer-initial-run.png" alt="image" width="800px" height="auto">
 
+Go to the Table and select `online` for setInitLoad.
 
-Add `Javascript` to the `Resources`
-
-<img src="./images/app-designer-javascript.png" alt="image" width="400px" height="auto">
-
-
-Select `Javascript` and insert the following code snippet
-
-```js
-sap.ui.getCore().attachInit(function (startParams) {
-    // Initialise the OData Model
-    createODataSource();
-
-    // Trigger OData read
-    getODataTable();
-});
-```
-
-<img src="./images/app-designer-attachinit.png" alt="image" width="800px" height="auto">
+<img src="./images/app-designer-setinitload.png" alt="image" width="800px" height="auto">
 
 Activate and Run the application
 
