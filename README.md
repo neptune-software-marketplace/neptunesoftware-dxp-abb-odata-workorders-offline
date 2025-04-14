@@ -8,7 +8,7 @@ The following topics are covered in this README.
 2. [Neptune Application using S/4 HANA Public Cloud OData Service (Online)](#2-neptune-application-using-s4-hana-public-cloud-odata-service)
 3. [Neptune Work Order application with offline capabilities using standard OData services](#3-neptune-work-order-applications-with-offline-capabilities)
 4. [Integration of SAP BTP Translation Hub Service](#4-integration-of-sap-btp-translation-hub-service)
-5. [Final result - Neptune Work Order application](#5-my-work-order-application)
+5. [Complete solution - Neptune Work Order applications with offline capabilities](#5-complete-solution)
 
 ## 1. Install Neptune DXP - Open Edition on SAP BTP Trial (optional)
 
@@ -573,14 +573,32 @@ Currently as seen in the code snippet, we translate from English (en-US) to Germ
 
 <img src="./images/application-translation.png" alt="image" width="800px" height="auto">
 
-## 5. My Work Order application
-
 The finished application as completed until Step 4 including the BTP Translation Hub can be downloaded from the GitHub repository right [here](https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-odata-workorders-offline/blob/master/MyWorkOrdersOffline-finished.planet9)
 
-The final result is the application you can import directly from the Marketplace or via Github. This application consist of the `My Work Orders` application we showcased above with the following functionalities:
+## 5. Complete solution
+
+The complete solution can be imported directly from the DXP Marketplace or when you import this GitHub repository as `Development Package`. 
+
+This application consist of the `My Work Orders` applications we showcased above with the following functionalities:
 - Offline capabilities
-- OData Service usage for Update Maintenance Orders and storing Attachments
+- OData Service to update work orders and storing attachments
 - Camera/Photo upload
 - Signature Build block
-- PDF Designer to create and design PDF with Work Order data + attachments
+- PDF Designer to create and design PDF with work order data + attachments
+- Work Order Manager application to assign work orders
+- Neptune Launchpad with tile group and tiles for both applications
+
+After import of the pacakge the API and OData Source endpoints and Proxy Authentication needs to be configured for the following `API` and `OData Source` objects
+
+**OData Source**
+- EAM_OBJPG_MAINTENANCEORDER_SRV change Endpoint and add Proxy Authentication for your SAP system
+- HCMFAB_COMMON_SRV change Endpoint and add Proxy Authentication for your SAP system
+- MaintenanceOrderOData add Proxy Authentication  with APIkey for Business Accelerator Hub 
+
+
+**API Designer**
+- AttachmentContentSet change Endpoint and add Proxy Authentication for your SAP system
+- TranslationHubAPI add Proxy Authentication with APIkey for Business Accelerator Hub
+
+
 
