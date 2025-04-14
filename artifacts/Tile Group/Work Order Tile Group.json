@@ -103,13 +103,13 @@
 			"id": "a41b7d66-d54d-4a30-b523-74443290e1db",
 			"name": "My Work Orders",
 			"title": "Work Order Execution",
-			"ver": "25.04.03.1132"
+			"ver": "25.04.08.2128"
 		},
 		{
 			"id": "50ac9f96-7bfc-41dc-95a8-0e066cf1e05d",
 			"name": "Work Order Manager",
 			"title": "Work Order Manager",
-			"ver": "25.04.03.1132"
+			"ver": "25.04.10.1313"
 		}
 	],
 	"tilegroups": [],

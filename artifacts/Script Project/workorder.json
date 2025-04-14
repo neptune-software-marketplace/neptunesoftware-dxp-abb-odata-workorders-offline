@@ -3,7 +3,7 @@
 	"createdAt": "2024-11-11T22:41:09.898Z",
 	"createdBy": "admin",
 	"name": "workorder",
-	"description": "",
-	"ver": "25.04.03.1129",
+	"description": "Work Order Scripts",
+	"ver": "25.04.09.1353",
 	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20"
 }

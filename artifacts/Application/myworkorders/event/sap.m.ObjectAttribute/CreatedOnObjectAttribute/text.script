@@ -1,3 +1,0 @@
-// if (typeof CreationDate === "undefined" || CreationDate === null || CreationDate === "") { return; }  
-// var formattedText = CreationDate; 
-// return formatJSONDate(formattedText);

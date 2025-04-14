@@ -16,7 +16,7 @@ modelWorkOrderDetailPage.setData(order);
 
 StopButton.setEnabled(false);
 FinishButton.setEnabled(false);
-if (order.MaintenanceProcessingPhase === "2") {
+if (order.MaintenanceProcessingPhase !== "3") {
     StartButton.setEnabled(true);
 } else {
     StartButton.setEnabled(false);

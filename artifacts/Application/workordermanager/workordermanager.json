@@ -1,6 +1,6 @@
 {
-	"id": "bfaadcaf-1f95-45ab-8f98-b23238e3a41f",
-	"createdAt": "2024-11-12T06:29:22.272Z",
+	"id": "667733d2-ff1a-4a67-b5c9-f76a29175a2c",
+	"createdAt": "2025-04-08T21:18:19.420Z",
 	"createdBy": "admin",
 	"objects": [
 		{
@@ -222,6 +222,39 @@
 									]
 								},
 								{
+									"fieldNo": "f44aeef3-4a8d-4fbb-d96a-038e440b00c4",
+									"fieldName": "colTableMaintenanceStatus",
+									"fieldParent": "44e3d6c9-2c2e-4199-8b6e-5b4773e5f880",
+									"fieldType": "sap.m.Column",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "926e9ab1-6bee-487e-e9bf-fffb0947e6b2",
+											"fieldName": "colHTableMaintenanceStatus",
+											"fieldParent": "f44aeef3-4a8d-4fbb-d96a-038e440b00c4",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Status",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								},
+								{
 									"fieldNo": "abb34fd8-9c88-405b-b03f-b1bfce682906",
 									"fieldName": "colTablePersonResponsibleName",
 									"fieldParent": "44e3d6c9-2c2e-4199-8b6e-5b4773e5f880",
@@ -420,39 +453,6 @@
 									]
 								},
 								{
-									"fieldNo": "f44aeef3-4a8d-4fbb-d96a-038e440b00c4",
-									"fieldName": "colTableMaintenancePlanningPlant",
-									"fieldParent": "44e3d6c9-2c2e-4199-8b6e-5b4773e5f880",
-									"fieldType": "sap.m.Column",
-									"script": "",
-									"customComponent": false,
-									"request": [],
-									"response": [],
-									"attributes": [],
-									"data": [
-										{
-											"fieldNo": "926e9ab1-6bee-487e-e9bf-fffb0947e6b2",
-											"fieldName": "colHTableMaintenancePlanningPlant",
-											"fieldParent": "f44aeef3-4a8d-4fbb-d96a-038e440b00c4",
-											"fieldType": "sap.m.Text",
-											"script": "",
-											"customComponent": false,
-											"request": [],
-											"response": [],
-											"attributes": [
-												{
-													"attribute": "text",
-													"grouping": "Properties",
-													"value": "Planning Plant",
-													"script": "",
-													"translation": []
-												}
-											],
-											"data": []
-										}
-									]
-								},
-								{
 									"fieldNo": "dbdbd130-6998-4429-ed82-8cad042baaca",
 									"fieldName": "colTableCreationDate",
 									"fieldParent": "44e3d6c9-2c2e-4199-8b6e-5b4773e5f880",
@@ -603,6 +603,26 @@
 											"data": []
 										},
 										{
+											"fieldNo": "a32b793a-0766-4d2e-cec5-175eb6c19d07",
+											"fieldName": "txtTableMaintenanceStatus",
+											"fieldParent": "a09b3acb-24a7-4444-b2db-6439151fd5dc",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "{MaintenanceProcessingPhaseDesc}",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
 											"fieldNo": "8f800c7d-3d2f-4a02-f813-737d85600aa1",
 											"fieldName": "txtTablePersonResponsibleName",
 											"fieldParent": "a09b3acb-24a7-4444-b2db-6439151fd5dc",
@@ -730,26 +750,6 @@
 													"attribute": "text",
 													"grouping": "Formatter",
 													"value": "date:BrowserSetting",
-													"script": "",
-													"translation": []
-												}
-											],
-											"data": []
-										},
-										{
-											"fieldNo": "a32b793a-0766-4d2e-cec5-175eb6c19d07",
-											"fieldName": "txtTableMaintenancePlanningPlant",
-											"fieldParent": "a09b3acb-24a7-4444-b2db-6439151fd5dc",
-											"fieldType": "sap.m.Text",
-											"script": "",
-											"customComponent": false,
-											"request": [],
-											"response": [],
-											"attributes": [
-												{
-													"attribute": "text",
-													"grouping": "Properties",
-													"value": "{MaintenancePlanningPlant}",
 													"script": "",
 													"translation": []
 												}
@@ -969,8 +969,8 @@
 		}
 	],
 	"componentInterface": [],
-	"ver": "25.04.03.1148",
-	"application": "workordermanager_odata",
+	"ver": "25.04.14.0902",
+	"application": "workordermanager",
 	"title": "",
 	"description": "",
 	"enableFileStorage": false,

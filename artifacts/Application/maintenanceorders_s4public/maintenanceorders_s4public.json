@@ -1,0 +1,809 @@
+{
+	"id": "5b8528df-fc1f-4645-8313-948268306563",
+	"createdAt": "2025-04-10T11:04:08.960Z",
+	"createdBy": "admin",
+	"objects": [
+		{
+			"fieldNo": "f0a0b3bb-002d-4604-850a-f56c6e601155",
+			"fieldName": "App",
+			"fieldParent": 0,
+			"fieldType": "sap.m.App",
+			"script": "",
+			"customComponent": false,
+			"request": [],
+			"response": [],
+			"attributes": [],
+			"data": [
+				{
+					"fieldNo": "f0bfbbf9-5d5c-4627-9fbc-bfd2a54a4125",
+					"fieldName": "MasterPage",
+					"fieldParent": "f0a0b3bb-002d-4604-850a-f56c6e601155",
+					"fieldType": "sap.m.Page",
+					"script": "",
+					"customComponent": false,
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "title",
+							"grouping": "Properties",
+							"value": "Maintenance Orders",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "titleAlignment",
+							"grouping": "Properties",
+							"value": "Center",
+							"script": "",
+							"translation": []
+						}
+					],
+					"data": [
+						{
+							"fieldNo": "bb6225a7-d9a1-464d-ca01-10cb607c792c",
+							"fieldName": "Table",
+							"fieldParent": "f0bfbbf9-5d5c-4627-9fbc-bfd2a54a4125",
+							"fieldType": "sap.m.Table",
+							"script": "",
+							"customComponent": false,
+							"bindingValue": "ODataMaintenanceOrders>MaintenanceOrder",
+							"bindingType": "h",
+							"bindingSource": "oData",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "setInitLoad",
+									"grouping": "Model",
+									"value": "online",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "a5019cb6-86a1-40a7-bee4-8b4d5b90208a",
+									"fieldName": "colTableMaintenanceOrder",
+									"fieldParent": "bb6225a7-d9a1-464d-ca01-10cb607c792c",
+									"fieldType": "sap.m.Column",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "9a52dc87-b7e1-4596-b0ef-9329364ca855",
+											"fieldName": "colHTableMaintenanceOrder",
+											"fieldParent": "a5019cb6-86a1-40a7-bee4-8b4d5b90208a",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Order",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								},
+								{
+									"fieldNo": "c3d2f95b-779f-4fb6-a40a-91682e37e932",
+									"fieldName": "colTableMaintenanceOrderType",
+									"fieldParent": "bb6225a7-d9a1-464d-ca01-10cb607c792c",
+									"fieldType": "sap.m.Column",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "3e2dc8fb-ccaf-4ae8-df54-a4c2474666c3",
+											"fieldName": "colHTableMaintenanceOrderType",
+											"fieldParent": "c3d2f95b-779f-4fb6-a40a-91682e37e932",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Type",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								},
+								{
+									"fieldNo": "00662c9e-450c-43f5-a6cf-d6c40103eab3",
+									"fieldName": "colTableMaintenanceOrderDesc",
+									"fieldParent": "bb6225a7-d9a1-464d-ca01-10cb607c792c",
+									"fieldType": "sap.m.Column",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "7c189d20-c919-4db6-f3f2-a92cf1f56f4f",
+											"fieldName": "colHTableMaintenanceOrderDesc",
+											"fieldParent": "00662c9e-450c-43f5-a6cf-d6c40103eab3",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Description",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								},
+								{
+									"fieldNo": "c0e43ca1-1096-4d4b-9e1a-02e6b703578d",
+									"fieldName": "colTableMaintOrdBasicStartDateTime",
+									"fieldParent": "bb6225a7-d9a1-464d-ca01-10cb607c792c",
+									"fieldType": "sap.m.Column",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "08b83653-3222-481b-a629-1ebec7f7a59f",
+											"fieldName": "colHTableMaintOrdBasicStartDateTime",
+											"fieldParent": "c0e43ca1-1096-4d4b-9e1a-02e6b703578d",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Start Date",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								},
+								{
+									"fieldNo": "27729600-5454-4aca-c0ac-a324f7b8c9f5",
+									"fieldName": "colTableMaintOrdBasicEndDateTime",
+									"fieldParent": "bb6225a7-d9a1-464d-ca01-10cb607c792c",
+									"fieldType": "sap.m.Column",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "ed2730c9-8ca4-4550-ee1e-50122d24769f",
+											"fieldName": "colHTableMaintOrdBasicEndDateTime",
+											"fieldParent": "27729600-5454-4aca-c0ac-a324f7b8c9f5",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "End Date",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								},
+								{
+									"fieldNo": "d4e54273-a7bf-49d0-e870-729f09e20b26",
+									"fieldName": "colItemTable",
+									"fieldParent": "bb6225a7-d9a1-464d-ca01-10cb607c792c",
+									"fieldType": "sap.m.ColumnListItem",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "press",
+											"grouping": "Events",
+											"value": "Anonymous Function",
+											"script": "file://event/sap.m.ColumnListItem/colItemTable/press.js",
+											"language": "javascript",
+											"translation": []
+										},
+										{
+											"attribute": "type",
+											"grouping": "Properties",
+											"value": "Active",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "ffdb2c31-e000-430c-e9e9-2ed0745db79d",
+											"fieldName": "txtTableMaintenanceOrder",
+											"fieldParent": "d4e54273-a7bf-49d0-e870-729f09e20b26",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "{MaintenanceOrder}",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "ddc930ff-282d-4450-d799-6ca257e22b0b",
+											"fieldName": "txtTableMaintenanceOrderType",
+											"fieldParent": "d4e54273-a7bf-49d0-e870-729f09e20b26",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "{MaintenanceOrderType}",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "ba6424a9-442f-4f2a-9411-d8b02d03367c",
+											"fieldName": "txtTableMaintenanceOrderDesc",
+											"fieldParent": "d4e54273-a7bf-49d0-e870-729f09e20b26",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "{MaintenanceOrderDesc}",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "39f67417-8700-4601-b3aa-902ea80a7995",
+											"fieldName": "txtTableMaintOrdBasicStartDateTime",
+											"fieldParent": "d4e54273-a7bf-49d0-e870-729f09e20b26",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "{MaintOrdBasicStartDateTime}",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "text",
+													"grouping": "Formatter",
+													"value": "date:BrowserSetting",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "f774f80f-2a62-44e0-96d7-e076d07bd990",
+											"fieldName": "txtTableMaintOrdBasicEndDateTime",
+											"fieldParent": "d4e54273-a7bf-49d0-e870-729f09e20b26",
+											"fieldType": "sap.m.Text",
+											"script": "",
+											"customComponent": false,
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "{MaintOrdBasicEndDateTime}",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "text",
+													"grouping": "Formatter",
+													"value": "date:BrowserSetting",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"fieldNo": "e71a773b-7336-4a3f-a1a5-8be47604665a",
+					"fieldName": "DetailPage",
+					"fieldParent": "f0a0b3bb-002d-4604-850a-f56c6e601155",
+					"fieldType": "sap.m.Page",
+					"script": "",
+					"customComponent": false,
+					"bindingValue": "ODataMaintenanceOrders>MaintenanceOrderType",
+					"bindingType": "u",
+					"bindingSource": "oData",
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "navButtonPress",
+							"grouping": "Events",
+							"value": "App.back();",
+							"script": "App.back();",
+							"language": "javascript",
+							"translation": []
+						},
+						{
+							"attribute": "title",
+							"grouping": "Properties",
+							"value": "Order Detail {/MaintenanceOrder}",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "showNavButton",
+							"grouping": "Properties",
+							"value": "true",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "titleAlignment",
+							"grouping": "Properties",
+							"value": "Center",
+							"script": "",
+							"translation": []
+						}
+					],
+					"data": [
+						{
+							"fieldNo": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+							"fieldName": "DetailForm",
+							"fieldParent": "e71a773b-7336-4a3f-a1a5-8be47604665a",
+							"fieldType": "sap.ui.layout.form.SimpleForm",
+							"script": "",
+							"customComponent": false,
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "editable",
+									"grouping": "Properties",
+									"value": "true",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "c310566e-895f-4ff3-f0cb-ffb955643cd8",
+									"fieldName": "lblDetailFormMaintenanceOrder",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Order",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "7ae566eb-7f1d-4ddc-ea5e-e39b166986bb",
+									"fieldName": "inDetailFormMaintenanceOrder",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Input",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "value",
+											"grouping": "Properties",
+											"value": "{/MaintenanceOrder}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "enabled",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "79aa037a-98ac-47fa-c59a-e6f1f9c816ee",
+									"fieldName": "lblDetailFormMaintOrderRoutingNumber",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Task List No.",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "8c6a5339-c15e-456b-8c2b-8fa33cff096f",
+									"fieldName": "inDetailFormMaintOrderRoutingNumber",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Input",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "value",
+											"grouping": "Properties",
+											"value": "{/MaintOrderRoutingNumber}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "enabled",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "a421a34a-93d8-491f-daed-a751829c6e43",
+									"fieldName": "lblDetailFormMaintenanceOrderType",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Type",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "30d0279c-db9f-4cdc-95b3-b0cfaa5cc2dc",
+									"fieldName": "inDetailFormMaintenanceOrderType",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Input",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "value",
+											"grouping": "Properties",
+											"value": "{/MaintenanceOrderType}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "enabled",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "c70014e0-ee0b-495d-fc70-79106e869b3a",
+									"fieldName": "lblDetailFormMaintenanceOrderDesc",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Description",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "eb7d3814-38c3-4ab0-d70b-f2802c1ccea9",
+									"fieldName": "inDetailFormMaintenanceOrderDesc",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Input",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "value",
+											"grouping": "Properties",
+											"value": "{/MaintenanceOrderDesc}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "enabled",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "87363d78-56c6-4096-8e31-fb32a9b911fd",
+									"fieldName": "lblDetailFormMaintOrdBasicStartDateTime",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Start Date",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "a47dbbf4-3244-4a0d-c9bb-b552199767fe",
+									"fieldName": "inDetailFormMaintOrdBasicStartDateTime",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Input",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "value",
+											"grouping": "Properties",
+											"value": "{/MaintOrdBasicStartDateTime}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "enabled",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "value",
+											"grouping": "Formatter",
+											"value": "date:BrowserSetting",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "2d27504b-3c82-4898-895d-39e1ce063e49",
+									"fieldName": "lblDetailFormMaintOrdBasicEndDateTime",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "End Date",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "38ad15da-510a-4575-fe88-a927d9389e16",
+									"fieldName": "inDetailFormMaintOrdBasicEndDateTime",
+									"fieldParent": "72cd8dbd-d3ee-47a5-fc39-7f2206041127",
+									"fieldType": "sap.m.Input",
+									"script": "",
+									"customComponent": false,
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "value",
+											"grouping": "Properties",
+											"value": "{/MaintOrdBasicEndDateTime}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "enabled",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "value",
+											"grouping": "Formatter",
+											"value": "date:BrowserSetting",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"fieldNo": 99999,
+			"data": [
+				{
+					"fieldNo": "48ba1879-c11e-4b7d-8d46-e4b85df5111c",
+					"fieldName": "ODataMaintenanceOrders",
+					"fieldParent": 99999,
+					"fieldType": "sap.ui.model.odata.v2.ODataModel",
+					"script": "",
+					"customComponent": false,
+					"odataSource": "53689ac4-93a9-4f8d-a487-e9a49163c2d3",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": []
+				}
+			]
+		},
+		{
+			"fieldNo": 99998,
+			"data": []
+		}
+	],
+	"componentInterface": [],
+	"ver": "25.04.10.1121",
+	"application": "maintenanceorders_s4public",
+	"title": "",
+	"description": "",
+	"enableFileStorage": false,
+	"enableManifest": false,
+	"enableStylesheet": false,
+	"enableObfuscate": false,
+	"onlyRunLaunchpad": false,
+	"disabled": false,
+	"loadLaunchpadCode": null,
+	"loadApplicationCode": null,
+	"appType": "A",
+	"ui5_m": true,
+	"ui5_f": false,
+	"ui5_table": false,
+	"ui5_tnt": false,
+	"ui5_uxap": false,
+	"ui5_chart": false,
+	"ui5_theme": "sap_horizon",
+	"ui5_version": "",
+	"ui5_language": null,
+	"ui5_url": "",
+	"cus_theme": "",
+	"css": "",
+	"compiledCss": null,
+	"header": "",
+	"manifest": "",
+	"globalScript": null,
+	"deleted": false,
+	"libHighchart": false,
+	"libHighmap": false,
+	"publicAccess": false,
+	"ui5_bootstrap": false,
+	"ui5_ionic": false,
+	"useV2AppHandler": false,
+	"compilerTarget": 3,
+	"tabWidth": null,
+	"printWidth": null,
+	"generateVersionOnActivation": false,
+	"activationHistoryCount": 0,
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",
+	"apis": []
+}

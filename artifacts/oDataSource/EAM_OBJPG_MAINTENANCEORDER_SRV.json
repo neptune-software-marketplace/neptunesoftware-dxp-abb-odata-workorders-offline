@@ -2,21 +2,13 @@
 	"id": "baa66469-4811-4e46-bcc6-9d39b2c6ecde",
 	"createdAt": "2024-11-12T06:27:43.398Z",
 	"createdBy": "admin",
-	"auth": [
-		{
-			"id": "11969249-0f1b-4a0b-887c-02f73bf357ce",
-			"role": "DEF",
-			"apiAuth": "d316670b-9056-4d7e-9872-3b8e7d23ddf8",
-			"authName": "S4IDES - GTM2",
-			"authDesc": ""
-		}
-	],
+	"auth": [],
 	"endpoints": [],
 	"name": "EAM_OBJPG_MAINTENANCEORDER_SRV",
-	"ver": "25.04.03.1141",
+	"ver": "25.04.14.0911",
 	"description": "Plant Maintenance Workorder OData v2 service",
 	"version": null,
-	"endpoint": "https://s4ides.neptune-software.com/sap/opu/odata/sap/EAM_OBJPG_MAINTENANCEORDER_SRV/",
+	"endpoint": "https://yoursaphostname/sap/opu/odata/sap/EAM_OBJPG_MAINTENANCEORDER_SRV",
 	"enableProxy": true,
 	"enableIDE": true,
 	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",

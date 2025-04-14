@@ -7,6 +7,8 @@ modelWorkOrderDetailPage.setProperty("/StopTime", current);
 // Store the actual value on the first item of the Operations
 modelWorkOrderDetailPage.setProperty("/to_MaintOrderOperation/results/0/Actual", actualHours);
 
+IconTabBar.setSelectedKey("operationsTab");
+
 setCacheWorkOrders();
 
 StopButton.setEnabled(false);

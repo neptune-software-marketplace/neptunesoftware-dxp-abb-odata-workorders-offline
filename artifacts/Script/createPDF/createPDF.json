@@ -13,13 +13,6 @@
 	],
 	"apis": [
 		{
-			"id": "70586d75-eef6-4cb5-8b73-6231c231881a",
-			"parent": "0eaa1f6f-d832-413e-b45c-eaac6400852b",
-			"name": "/AttachmentContentSet",
-			"contextname": "uploadAttachment",
-			"method": "POST"
-		},
-		{
 			"id": "44050e7d-fc4d-4924-8b9e-719cb5a5c154",
 			"parent": "a5b04921-5ca3-ef11-88cf-0022489c9842",
 			"name": "/AttachmentContentSet",
@@ -28,7 +21,7 @@
 		}
 	],
 	"name": "createPDF",
-	"ver": "25.04.03.1113",
+	"ver": "25.04.09.1353",
 	"description": null,
 	"folder": "",
 	"content": "file:///content.js",

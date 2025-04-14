@@ -8,7 +8,7 @@
 	},
 	"name": "neptunesoftware-dxp-abb-odata-workorders-offline",
 	"description": "Neptune DXP Open Edition Work Order applications with offline capabilities using standard OData services  Resources",
-	"ver": "25.04.03.1150",
+	"ver": "25.04.08.1034",
 	"enableCICD": true,
 	"internalReadOnly": false,
 	"oeVersion": null,
@@ -16,14 +16,20 @@
 	"roles": [],
 	"apps": [
 		{
-			"id": "bfaadcaf-1f95-45ab-8f98-b23238e3a41f",
-			"application": "workordermanager_odata",
+			"id": "88671643-17ed-4d7d-a302-66258951970d",
+			"application": "myworkorders",
 			"title": "",
 			"description": ""
 		},
 		{
-			"id": "88671643-17ed-4d7d-a302-66258951970d",
-			"application": "myworkorders",
+			"id": "667733d2-ff1a-4a67-b5c9-f76a29175a2c",
+			"application": "workordermanager",
+			"title": "",
+			"description": ""
+		},
+		{
+			"id": "5b8528df-fc1f-4645-8313-948268306563",
+			"application": "maintenanceorders_s4public",
 			"title": "",
 			"description": ""
 		}
@@ -46,19 +52,31 @@
 			"name": "workorder scripts",
 			"description": null,
 			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
+		},
+		{
+			"id": "16e54bfe-37ad-4095-863c-180cf14847b7",
+			"name": "TranslationHubAPI",
+			"description": null,
+			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
 		}
 	],
 	"odataSource": [
 		{
-			"id": "cd08a89d-c54e-4005-a8bf-6de61d1db22c",
+			"id": "baa66469-4811-4e46-bcc6-9d39b2c6ecde",
+			"name": "EAM_OBJPG_MAINTENANCEORDER_SRV",
+			"description": "Plant Maintenance Workorder OData v2 service",
+			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
+		},
+		{
+			"id": "6d31fc1e-350a-4fb3-ae66-c4cee7668fb9",
 			"name": "HCMFAB_COMMON_SRV",
 			"description": "Employee Detail OData Service",
 			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
 		},
 		{
-			"id": "baa66469-4811-4e46-bcc6-9d39b2c6ecde",
-			"name": "EAM_OBJPG_MAINTENANCEORDER_SRV",
-			"description": "Plant Maintenance Workorder OData v2 service",
+			"id": "53689ac4-93a9-4f8d-a487-e9a49163c2d3",
+			"name": "MaintenanceOrderOData",
+			"description": null,
 			"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007"
 		}
 	],
@@ -81,7 +99,7 @@
 		{
 			"id": "4415709b-4968-460f-8622-d2c6b781cb96",
 			"name": "workorder",
-			"description": ""
+			"description": "Work Order Scripts"
 		}
 	],
 	"theme": [],
@@ -126,8 +144,8 @@
 	"launchpad": [
 		{
 			"id": "2542caba-a556-4984-bcf9-eec68a55808c",
-			"name": "Workorders",
-			"description": null
+			"name": "neptune-workorders-launchpad",
+			"description": "Central entry point for the worl order applications."
 		}
 	],
 	"launchpad_layout": [],

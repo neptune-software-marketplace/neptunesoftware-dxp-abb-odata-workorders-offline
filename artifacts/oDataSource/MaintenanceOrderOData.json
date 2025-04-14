@@ -1,0 +1,18 @@
+{
+	"id": "53689ac4-93a9-4f8d-a487-e9a49163c2d3",
+	"createdAt": "2025-03-25T15:12:52.007Z",
+	"createdBy": "admin",
+	"auth": [],
+	"endpoints": {},
+	"name": "MaintenanceOrderOData",
+	"ver": "25.04.14.0910",
+	"description": null,
+	"version": null,
+	"endpoint": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MAINTENANCEORDER;v=0002/",
+	"enableProxy": true,
+	"enableIDE": true,
+	"package": "cb8e6657-2bc8-4f10-81c9-b4ed220b0e20",
+	"apiGroup": "8fa4492f-f414-43f5-a57d-283a4cc93007",
+	"tlsAllowUntrusted": false,
+	"odataVersion": "v2"
+}
