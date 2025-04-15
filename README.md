@@ -55,7 +55,7 @@ The first application we are developing with the Neptune Open Edition App Design
 
 ### Neptune cockpit
 
-Login to the [DSAG 25 environment](https://dsag-25.neptune-software.cloud/cockpit.html) with your user and password.
+Login to your Neptune DXP - Open Edition
 
 ## Proxy Authentication
 
